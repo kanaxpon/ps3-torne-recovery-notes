@@ -1,0 +1,7 @@
+# Public summary documents only.
+*
+!.gitignore
+!README.md
+!findings.md
+!preservation.md
+!sources.md
