@@ -21,6 +21,7 @@
 
 ## 読む順番
 
+- [匿名化した調査履歴](investigation-log.md)／[イベント記録（JSON Lines）](investigation-events.jsonl)
 - [調査結果と未解決点](findings.md)
 - [保全方針と作業上の注意](preservation.md)
 - [参照した公開資料](sources.md)

@@ -1,0 +1,20 @@
+{"seq":1,"kind":"reconstructed_observation","phase":"preservation","observed":"コピー完了確認後にハッシュを記録し、容量に合わせて検証済み部分コピーを作成した。","decision":"原本と作業コピーと出力を分離。元ストレージとの一致は別検査。"}
+{"seq":2,"kind":"reconstructed_observation","phase":"backup_normal","observed":"通常索引と通常データの内部HMAC検証は成功。本体Device IDなしの保護索引は拒否。","decision":"索引の実出力は識別情報を含み得るため非公開。"}
+{"seq":3,"kind":"reconstructed_observation","phase":"protected_extraction","observed":"限定的に取得した本体情報をローカル利用し、録画本体と管理情報を保全。188バイトTSにもスクランブルが残存。","decision":"バックアップ展開とコンテンツ復号を区別。"}
+{"seq":4,"kind":"reconstructed_observation","phase":"multi2dec","observed":"終了コード0・同期エラー0でも、TSC=1の拒否と映像デコード失敗を確認。","decision":"終了コード、コーデック名、TSC表示だけで復号成功としない。"}
+{"seq":5,"kind":"reconstructed_observation","phase":"static_analysis","observed":"鍵関連のコード参照を追跡。TOCの取り違えを修正し、既存実装のv1.10と対象v2.00の違いを確認。","decision":"版違いのアドレス・パッチ・パーサーを流用しない。"}
+{"seq":6,"kind":"reconstructed_observation","phase":"metadata","observed":"RID境界とDB整合性を確認。Secure408バイトはrecord_info300とkey_info108の順に一致。","decision":"管理情報の一致を鍵の取得と混同しない。"}
+{"seq":7,"kind":"reconstructed_observation","phase":"idle_auth","observed":"ユーザー承認・手動WinUSB導入後、純正idleのRAM起動と101/102認証が成功し状態0x11。","decision":"フラッシュ更新はしない。"}
+{"seq":8,"kind":"reconstructed_observation","phase":"runtime_auth","observed":"純正operationalのRAM起動・テーブル転送と201/202認証が成功し状態0x1。","decision":"後に無効状態を観測したセッションは再利用しない。"}
+{"seq":9,"kind":"reconstructed_observation","phase":"media_701","observed":"701単発で16バイト応答を取得。録画コピーへの限定的な適用では映像検証に失敗。","decision":"応答値は非公開。対象録画の鍵とは断定しない。"}
+{"seq":10,"kind":"reconstructed_observation","phase":"recording_608_preflight","observed":"初回は事前状態の不一致で608送信前に停止。","decision":"自動リセットや再送をしない。"}
+{"seq":11,"kind":"reconstructed_observation","phase":"recording_608_fresh","observed":"抜き差し後の新規認証から608を1回送信し、非同期側から再送なしでstatus0・408バイト応答を回収。","decision":"元DBとRIDへ書き戻さない。"}
+{"seq":12,"kind":"reconstructed_observation","phase":"playback_60d","observed":"新規認証後の60d(mode9)はstatus0x2000c。702は未送信。","decision":"停止条件を維持。エラー原因は未確定。"}
+{"seq":13,"kind":"reconstructed_observation","phase":"alternate_path","observed":"216/8017と217/8019の経路を区別。EBOOT候補の216呼出し元にファイル削除との関連を確認。","decision":"607等を追加の再生前処理として送らない。候補ELFの検証限界も記録。"}
+{"seq":14,"kind":"reconstructed_observation","phase":"status_60c","observed":"初回は送信前停止。抜き差し後の新規認証では60cを1回送信しstatus0・8バイト応答。","decision":"601フォールバックや追加コマンドは実行しない。"}
+{"seq":15,"kind":"reconstructed_observation","phase":"status_notification","observed":"60c成功後のイベント8002・メッセージ8013から60bへの純正経路を静的に追跡。応答の一部は対象管理番号と対応。","decision":"値は非公開。60bの副作用と必要性は未確認のため送信しない。"}
+{"seq":16,"kind":"reconstructed_observation","phase":"native_snapshot_design","observed":"正規再生中の限定読取り案とオフライン検査を準備。静的TOCスロットの途中の誤りを修正。","decision":"実行中の版・再配置が未確認のままメモリを読まない。"}
+{"seq":17,"kind":"reconstructed_observation","phase":"network","observed":"有線経由のツール照会はタイムアウト。PS3自身と同じWi-FiのスマホではHTTP画面が開いた。","decision":"タイムアウトからプラグイン未起動や全端末の到達不能を断定しない。"}
+{"seq":18,"kind":"reconstructed_observation","phase":"webman_resources","observed":"USB準備で外部setup部品が欠け、画面と選択欄が不完全。公式27部品を検証して追加後、表示が復旧。","decision":"不完全なフォームは保存しない。実機側の全ファイルのハッシュ再照合は未実施。"}
+{"seq":19,"kind":"reconstructed_observation","phase":"ps3mapi","observed":"横スクロールで選択欄を確認して設定を案内。PCのWi-Fi経由でHTTPとPS3MAPIの版照会、メタデータ照会に成功。","decision":"PVR候補モジュールはその時点で未検出。メモリ読取りは未実施。"}
+{"seq":20,"kind":"reconstructed_observation","phase":"paused","observed":"録画アプリ起動操作後、USBコントローラー要求・低解像度画面との報告。ユーザーの希望で中断。","decision":"セーフモード、原因、録画損失は未確認。追加の実機操作は停止。"}

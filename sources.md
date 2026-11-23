@@ -13,3 +13,8 @@
 - [Ghidra](https://github.com/NationalSecurityAgency/ghidra)：静的解析。デコンパイル結果だけで分岐の有無を決めず、命令列も確認した。
 - [coax](https://github.com/Till0196/coax/tree/63643f0019187e6fef80f0e17294bc7535207b6c)、[ghidra-fr60](https://github.com/aleph-void/ghidra-fr60/tree/cc91ae7f3085f2e64f9ce07a1038fd4b8ed5d477)：関連チップ・命令セットを調べる参考資料。今回の保存録画を復号できると確認したものではない。
 - [PS3 セーフモード](https://www.playstation.com/ja-jp/support/hardware/ps3-safe-mode/)：USBコントローラー要求画面の照合用。中断時の実画面がセーフモードだったと確定する資料ではない。
+
+## 追加の履歴で参照する実装
+
+- [Multi2Decのパケット検査](https://github.com/AngieKawai-4649/Multi2Dec/blob/895219cfa08c7e5260274d49c6a5e0e9c90aac67/Multi2Dec/MediaDecoder/BonTsEngine/TsPacket.cpp)：TSC=1をFormat Errorとして扱う条件の照合。
+- [ps3idaのNID定義](https://github.com/kakaroto/ps3ida/blob/master/ps3.xml) と [RPCS3のcellFs実装](https://github.com/RPCS3/rpcs3/blob/master/rpcs3/Emu/Cell/Modules/cellFs.cpp)：インポートがファイル削除の処理へ対応することの照合。特定の機器コマンド単体の副作用を保証する資料ではない。
